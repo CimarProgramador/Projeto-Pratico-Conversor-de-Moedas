@@ -45,26 +45,18 @@ function changeCurrency() {
     if (currencySelect.value == "dolar") {
         currencyName.innerHTML='Dolar Americano'
         currencyImg.src = "./assets/Dolar.png"
-        convertValues()
-       
-        console.log(currencyName.innerHTML)
     }
 
     if (currencySelect.value == "euro") {
         currencyName.innerHTML='Euro'
         currencyImg.src = "./assets/Euro.png"
-        convertValues()
-
-        console.log(currencyName.innerHTML)
     }
 
     if (currencySelect.value == "libra") {
         currencyName.innerHTML='Libra'
         currencyImg.src = "./assets/Libra.png"
-        convertValues()
-
-        console.log(currencyName.innerHTML)
     }
+    convertValues()
 }
 
 
