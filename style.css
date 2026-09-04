@@ -24,7 +24,7 @@ main {
     padding: 44px 24px 23px;
 }
 
-.logo-brasil, .currency-img {
+.currency-logo-convert, .currency-logo-converted {
     width: 64px;
     height: 64px;
 }
@@ -48,6 +48,19 @@ select, input {
     font-size: 16px;
     color: #555555;
     cursor: pointer;
+}
+
+/* Remove as setinhas em navegadores baseados em Webkit (Chrome, Safari, Edge, Opera) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove as setinhas no Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 button {
