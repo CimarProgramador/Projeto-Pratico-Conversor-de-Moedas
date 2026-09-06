@@ -6,9 +6,6 @@ console.log(currencySelectToConvert.value, currencySelect.value, inputCurrency.v
 
 let rates = {}; // objeto que vai receber as taxas
 
-
-
-
 // Função para atualizar as taxas de câmbio
 async function atualizarRates(base = "USD") {
     try {
@@ -16,7 +13,6 @@ async function atualizarRates(base = "USD") {
         //const resposta = await fetch(`https://api.frankfurter.app/latest?from=${base}`);
         //const resposta = await fetch(`https://api.exchangerate.host/latest?base=${base}`);
         
-
         const dados = await resposta.json();
 
         // Guarda as taxas no objeto rates
@@ -52,7 +48,7 @@ function convertValues() {
     const taxaDestino = rates[destino];
 
     if (!taxaOrigem || !taxaDestino) {
-        currencyValueConverted.innerHTML = "Taxa não disponível.";
+        alert("Não foi possível obter os valores das taxas das moedas para conversão. Por favor verifique sua cenexão.");
         return;
     }
 

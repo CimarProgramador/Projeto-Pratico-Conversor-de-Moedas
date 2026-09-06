@@ -11,57 +11,63 @@
     <link rel="stylesheet" href="./style.css">
     <title>Projeto prático</title>
 </head>
-    
+
 <body>
-    <img class="Logo" src="./assets/logo.gif" alt="Logo ConvertMoney">
-    
-    <main>
-        <label>
-            Converter <b>de</b>
-            <select class="currency-select-to-convert">
-                <option value="USD">Dolar Americano</option>
-                <option value="BRL">Real Brasileiro</option>
-                <option value="EUR">Euro</option>
-                <option value="GBP">Libra</option>
-            </select>
-        </label>
-        
-        <label>
-            Converter <b>para</b>
-            <select class="currency-select">
-                <option value="USD">Dolar Americano</option>
-                <option value="EUR">Euro</option>
-                <option value="GBP">Libra</option>
-                <option value="BRL">Real Brasileiro</option>
-            </select>
-        </label>
-        <label>
-            Valor
-            <Input class="input-corrency" placeholder="Digite o valor a ser convertido"></Input>
-        </label>
+    <div class="container-principal">
+        <aside>
+            <img class="Logo" src="./assets/logo.gif" alt="Logo ConvertMoney">
+        </aside>
 
-        <button class="btnConvert">Converter</button>
 
-        <section>
-            <div class="currency-box">
-                <img class="currency-logo-convert" src="./assets/Real.png" alt="Moeda-a-converter">
-                <p class="currency" id="currency-name-convert">Real</p>
-                <p class="currency-value-to-convert">R$ 0,00</p>
-            </div>
+        <main>
 
-            <div class="arrow-img">
-                <img src="./assets/Arrow.png" alt="Seta">
-            </div>
+            <label>
+                Converter <b>de</b>
+                <select class="currency-select-to-convert">
+                    <option value="BRL">Rela Brasileiro</option>
+                    <option value="USD">Dolar Americano</option>
+                    <option value="EUR">Euro</option>
+                    <option value="GBP">Libra</option>
+                </select>
+            </label>
 
-            <div class="currency-box">
-                <img class="currency-logo-converted" src="./assets/Dolar.png" alt="Moeda-convertida">
-                <p class="currency" id="currency-name-converted">Dolar</p>
-                <p class="currency-value-converted">R$ 0,00</p>
-            </div>
-            
-        </section>
-        
-    </main>
+            <label>
+                Converter <b>para</b>
+                <select class="currency-select">
+                    <option value="USD">Dolar Americano</option>
+                    <option value="EUR">Euro</option>
+                    <option value="GBP">Libra</option>
+                    <option value="BRL">Real Brasileiro</option>
+                </select>
+            </label>
+            <label>
+                Valor
+                <Input class="input-corrency" placeholder="Digite o valor a ser convertido"></Input>
+            </label>
+
+            <button class="btnConvert">Converter</button>
+
+            <section>
+                <div class="currency-box">
+                    <img class="currency-logo-convert" src="./assets/Real.png" alt="Moeda-a-converter">
+                    <p class="currency" id="currency-name-convert">Real</p>
+                    <p class="currency-value-to-convert">R$ 0,00</p>
+                </div>
+
+                <div class="arrow-img">
+                    <img src="./assets/Arrow.png" alt="Seta">
+                </div>
+
+                <div class="currency-box">
+                    <img class="currency-logo-converted" src="./assets/Dolar.png" alt="Moeda-convertida">
+                    <p class="currency" id="currency-name-converted">Dolar</p>
+                    <p class="currency-value-converted">R$ 0,00</p>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
 </body>
 
 <script src="./script.js"></script>

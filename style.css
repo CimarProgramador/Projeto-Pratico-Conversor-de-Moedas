@@ -7,20 +7,25 @@
 }
 
 body {
-    background-color: rgb(131, 72, 249);
+    background-color: rgb(97, 83, 252);
+}
+
+.container-principal {
+  display: flex; /* Alinha os filhos em linha (um ao lado do outro) */
+  gap: 500px;     /* Cria um espaço entre o main e a imagem */
+  align-items: flex-start; /* Alinha os itens pelo topo */
 }
 
 .Logo {
     width: 300px;
-    display: block;
-    margin: 20px auto;
+    margin: 20px 20px;
 }
 
 main {
     width: 375px;
     background: #f4f4f4;
     border-radius: 28px;
-    margin: 0 auto 40px;
+    margin: 40px 40px;
     padding: 44px 24px 23px;
 }
 
@@ -64,7 +69,7 @@ input[type="number"] {
 }
 
 button {
-    background: #772FD3;
+    background: #2b32f9;
     border-radius: 5px;
     width: 100%;
     border: none;
