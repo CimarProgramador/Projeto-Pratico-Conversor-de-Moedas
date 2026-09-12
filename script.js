@@ -1,10 +1,34 @@
 const convertButton = document.querySelector(".btnConvert");
 const currencySelectToConvert = document.querySelector(".currency-select-to-convert");
 const currencySelect = document.querySelector(".currency-select");
-const inputCurrency = document.querySelector(".input-corrency");
+const inputCurrency = document.querySelector(".input-currency");
 console.log(currencySelectToConvert.value, currencySelect.value, inputCurrency.value);
 
 let rates = {}; // objeto que vai receber as taxas
+
+
+// --- NOVO: Evento para formatar o input em tempo real ---
+inputCurrency.addEventListener("input", (e) => {
+    // Remove tudo o que não for dígito numérico
+    let value = e.target.value.replace(/\D/g, "");
+
+    // Se estiver vazio, limpa o campo
+    if (!value) {
+        e.target.value = "";
+        return;
+    }
+
+    // Transforma em centavos (ex: 150 vira 1.50)
+    value = (parseFloat(value) / 100).toFixed(2);
+
+    // Formata para o padrão brasileiro (milhar com ponto, decimal com vírgula)
+    // Se preferir o padrão americano (1,000.00), mude para 'en-US'
+    e.target.value = Intl.NumberFormat("pt-BR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(value);
+});
+
 
 // Função para atualizar as taxas de câmbio
 async function atualizarRates(base = "USD") {
@@ -12,7 +36,7 @@ async function atualizarRates(base = "USD") {
         const resposta = await fetch(`https://open.er-api.com/v6/latest/${base}`);
         //const resposta = await fetch(`https://api.frankfurter.app/latest?from=${base}`);
         //const resposta = await fetch(`https://api.exchangerate.host/latest?base=${base}`);
-        
+
         const dados = await resposta.json();
 
         // Guarda as taxas no objeto rates
@@ -32,9 +56,14 @@ function convertValues() {
         return;
     }
 
-    const inputCorrencyValue = parseFloat(inputCurrency.value);
+
+    // --- AJUSTE: Limpa a formatação visual para conseguir converter em número puro ---
+    // Remove pontos de milhar e troca a vírgula decimal por ponto
+    let rawValue = inputCurrency.value.replace(/\./g, "").replace(",", ".");
+    const inputCorrencyValue = parseFloat(rawValue);
     const currencyValueToConvert = document.querySelector(".currency-value-to-convert");
     const currencyValueConverted = document.querySelector(".currency-value-converted");
+
 
     if (isNaN(inputCorrencyValue)) {
         alert("Digite um valor válido!");
@@ -116,7 +145,11 @@ function changeCurrency() {
 currencySelectToConvert.addEventListener("change", changeCurrency);
 currencySelect.addEventListener("change", changeCurrency);
 convertButton.addEventListener("click", convertValues);
-inputCurrency.addEventListener("input", convertValues);
+inputCurrency.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      convertValues();
+    }
+  });
 
 // Atualiza taxas ao carregar a página
 atualizarRates();

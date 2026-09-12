@@ -120,3 +120,24 @@ section {
     font-weight: 700;
     font-size: 20px;
 }
+
+
+
+/* Revisar - Responsividade para Celulares */
+@media (max-width: 768px) {
+    .container-principal {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    main {
+        padding: 10px 10px;
+    }
+    .Logo {
+        width: 200px;
+    }
+    
+/*     .conversor-card {
+        padding: 24px 20px;
+    } */
+}
