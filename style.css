@@ -7,18 +7,16 @@
 }
 
 body {
-    background-color: rgb(97, 83, 252);
+    background-color: rgb(200, 200, 200);
 }
 
 .container-principal {
   display: flex; /* Alinha os filhos em linha (um ao lado do outro) */
-  gap: 500px;     /* Cria um espaço entre o main e a imagem */
-  align-items: flex-start; /* Alinha os itens pelo topo */
 }
 
 .Logo {
-    width: 300px;
-    margin: 20px 20px;
+    width: px;
+    margin: 70px 50px;
 }
 
 main {
